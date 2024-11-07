@@ -55,7 +55,7 @@ def process_data():
     # Calculate requested metrics for the new table
     new_df = pd.DataFrame()
     new_df['Stock'] = results_df2['Stock']
-    new_df['Percentage Difference'] = (results_df2['% Positive Returns']/abs(results_df2['% Negative Returns']))
+    new_df['% Positive Returns'] = (results_df2['% Positive Returns'])
     new_df['Average Difference'] = results_df2['Avg Positive Return']/abs(results_df2['Avg Negative Return'])
     new_df['Median Difference'] = results_df2['Median Positive Return']/abs(results_df2['Median Negative Return'])
     new_df['Std Dev Difference'] = results_df2['SD Positive Return']/abs(results_df2['SD Negative Return'])
@@ -69,7 +69,7 @@ def process_data():
     new_df_rounded = new_df.round(3)
 
     # Standardize the data for clustering
-    Cluster_data = new_df_rounded.drop(columns=['Stock'])
+    Cluster_data = new_df_rounded[['% Positive Returns', 'Average Difference', 'Std Dev Difference', 'Max-Min Positive/Negative']].copy()
     scaler = StandardScaler()
     scaled_data = scaler.fit_transform(Cluster_data)
 
