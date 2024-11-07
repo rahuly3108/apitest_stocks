@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[10]:
-
-
 from flask import Flask, jsonify
 import pandas as pd
 import yfinance as yf
@@ -100,10 +94,3 @@ def get_data():
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
-
-
-# In[ ]:
-
-
-
-
