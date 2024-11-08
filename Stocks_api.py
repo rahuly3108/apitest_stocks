@@ -15,7 +15,7 @@ app = Flask(__name__)
 def process_data():
     # Load the list of 200 stock symbols
     data = pd.read_csv('ind_nifty200list.csv')
-    symbols_list = data['Symbol'].head(50)
+    symbols_list = data['Symbol'].head(100)
     end_date = datetime.now()
     start_date = end_date - timedelta(days=365)
     results_list = []
